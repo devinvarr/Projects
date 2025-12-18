@@ -1,0 +1,1160 @@
+Analysis & Synthesis report for FloatingPointAdderSubtactor
+Thu Dec 18 14:07:13 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst
+ 13. Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider
+ 14. Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder
+ 15. Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|shift_reg:shift_reg
+ 16. Parameter Settings for User Entity Instance: ClockLadder:DisplayClockLadder
+ 17. Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub
+ 18. Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst
+ 19. Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:MantissaShifterMUX
+ 20. Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:MantissaAdderMUX
+ 21. Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:ExponentINCMUX
+ 22. Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder
+ 23. Parameter Settings for User Entity Instance: mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst
+ 24. Parameter Settings for User Entity Instance: mux7seg:mux7seg_inst|four2one:four2one_inst
+ 25. Parameter Settings for User Entity Instance: mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst
+ 26. Port Connectivity Checks: "mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst"
+ 27. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder"
+ 28. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst33"
+ 29. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst23"
+ 30. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst22"
+ 31. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst14"
+ 32. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst13"
+ 33. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst12"
+ 34. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst11"
+ 35. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst7"
+ 36. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst6"
+ 37. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst5"
+ 38. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst4"
+ 39. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst3"
+ 40. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst2"
+ 41. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst1"
+ 42. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst0"
+ 43. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst010"
+ 44. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst09"
+ 45. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst08"
+ 46. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst07"
+ 47. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst06"
+ 48. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst05"
+ 49. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst04"
+ 50. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst03"
+ 51. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst02"
+ 52. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst01"
+ 53. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst00"
+ 54. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter"
+ 55. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[4].fulladder_inst"
+ 56. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[3].fulladder_inst"
+ 57. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[2].fulladder_inst"
+ 58. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[1].fulladder_inst"
+ 59. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[0].fulladder_inst"
+ 60. Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst"
+ 61. Port Connectivity Checks: "ClockLadder:DisplayClockLadder"
+ 62. Port Connectivity Checks: "keypad_input:keypad_input_inst|shift_reg:shift_reg"
+ 63. Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm"
+ 64. Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider"
+ 65. Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base"
+ 66. Port Connectivity Checks: "keypad_input:keypad_input_inst"
+ 67. Post-Synthesis Netlist Statistics for Top Partition
+ 68. Elapsed Time Per Partition
+ 69. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Dec 18 14:07:12 2025           ;
+; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Revision Name                      ; FloatingPointAdderSubtactor                     ;
+; Top-level Entity Name              ; floatingPointAdderSubtactor                     ;
+; Family                             ; MAX 10                                          ;
+; Total logic elements               ; 531                                             ;
+;     Total combinational functions  ; 519                                             ;
+;     Dedicated logic registers      ; 132                                             ;
+; Total registers                    ; 132                                             ;
+; Total pins                         ; 25                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
+; UFM blocks                         ; 0                                               ;
+; ADC blocks                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                ;
++------------------------------------------------------------------+-----------------------------+-----------------------------+
+; Option                                                           ; Setting                     ; Default Value               ;
++------------------------------------------------------------------+-----------------------------+-----------------------------+
+; Device                                                           ; 10M50DAF484C7G              ;                             ;
+; Top-level entity name                                            ; floatingPointAdderSubtactor ; FloatingPointAdderSubtactor ;
+; Family name                                                      ; MAX 10                      ; Cyclone V                   ;
+; Use smart compilation                                            ; Off                         ; Off                         ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                          ; On                          ;
+; Enable compact report table                                      ; Off                         ; Off                         ;
+; Restructure Multiplexers                                         ; Auto                        ; Auto                        ;
+; Create Debugging Nodes for IP Cores                              ; Off                         ; Off                         ;
+; Preserve fewer node names                                        ; On                          ; On                          ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable                      ; Enable                      ;
+; Verilog Version                                                  ; Verilog_2001                ; Verilog_2001                ;
+; VHDL Version                                                     ; VHDL_1993                   ; VHDL_1993                   ;
+; State Machine Processing                                         ; Auto                        ; Auto                        ;
+; Safe State Machine                                               ; Off                         ; Off                         ;
+; Extract Verilog State Machines                                   ; On                          ; On                          ;
+; Extract VHDL State Machines                                      ; On                          ; On                          ;
+; Ignore Verilog initial constructs                                ; Off                         ; Off                         ;
+; Iteration limit for constant Verilog loops                       ; 5000                        ; 5000                        ;
+; Iteration limit for non-constant Verilog loops                   ; 250                         ; 250                         ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                          ; On                          ;
+; Infer RAMs from Raw Logic                                        ; On                          ; On                          ;
+; Parallel Synthesis                                               ; On                          ; On                          ;
+; DSP Block Balancing                                              ; Auto                        ; Auto                        ;
+; NOT Gate Push-Back                                               ; On                          ; On                          ;
+; Power-Up Don't Care                                              ; On                          ; On                          ;
+; Remove Redundant Logic Cells                                     ; Off                         ; Off                         ;
+; Remove Duplicate Registers                                       ; On                          ; On                          ;
+; Ignore CARRY Buffers                                             ; Off                         ; Off                         ;
+; Ignore CASCADE Buffers                                           ; Off                         ; Off                         ;
+; Ignore GLOBAL Buffers                                            ; Off                         ; Off                         ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                         ; Off                         ;
+; Ignore LCELL Buffers                                             ; Off                         ; Off                         ;
+; Ignore SOFT Buffers                                              ; On                          ; On                          ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                         ; Off                         ;
+; Optimization Technique                                           ; Balanced                    ; Balanced                    ;
+; Carry Chain Length                                               ; 70                          ; 70                          ;
+; Auto Carry Chains                                                ; On                          ; On                          ;
+; Auto Open-Drain Pins                                             ; On                          ; On                          ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                         ; Off                         ;
+; Auto ROM Replacement                                             ; On                          ; On                          ;
+; Auto RAM Replacement                                             ; On                          ; On                          ;
+; Auto DSP Block Replacement                                       ; On                          ; On                          ;
+; Auto Shift Register Replacement                                  ; Auto                        ; Auto                        ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                        ; Auto                        ;
+; Auto Clock Enable Replacement                                    ; On                          ; On                          ;
+; Strict RAM Replacement                                           ; Off                         ; Off                         ;
+; Allow Synchronous Control Signals                                ; On                          ; On                          ;
+; Force Use of Synchronous Clear Signals                           ; Off                         ; Off                         ;
+; Auto RAM Block Balancing                                         ; On                          ; On                          ;
+; Auto RAM to Logic Cell Conversion                                ; Off                         ; Off                         ;
+; Auto Resource Sharing                                            ; Off                         ; Off                         ;
+; Allow Any RAM Size For Recognition                               ; Off                         ; Off                         ;
+; Allow Any ROM Size For Recognition                               ; Off                         ; Off                         ;
+; Allow Any Shift Register Size For Recognition                    ; Off                         ; Off                         ;
+; Use LogicLock Constraints during Resource Balancing              ; On                          ; On                          ;
+; Ignore translate_off and synthesis_off directives                ; Off                         ; Off                         ;
+; Timing-Driven Synthesis                                          ; On                          ; On                          ;
+; Report Parameter Settings                                        ; On                          ; On                          ;
+; Report Source Assignments                                        ; On                          ; On                          ;
+; Report Connectivity Checks                                       ; On                          ; On                          ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                         ; Off                         ;
+; Synchronization Register Chain Length                            ; 2                           ; 2                           ;
+; Power Optimization During Synthesis                              ; Normal compilation          ; Normal compilation          ;
+; HDL message level                                                ; Level2                      ; Level2                      ;
+; Suppress Register Optimization Related Messages                  ; Off                         ; Off                         ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                        ; 5000                        ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                        ; 5000                        ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                         ; 100                         ;
+; Clock MUX Protection                                             ; On                          ; On                          ;
+; Auto Gated Clock Conversion                                      ; Off                         ; Off                         ;
+; Block Design Naming                                              ; Auto                        ; Auto                        ;
+; SDC constraint protection                                        ; Off                         ; Off                         ;
+; Synthesis Effort                                                 ; Auto                        ; Auto                        ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                          ; On                          ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                         ; Off                         ;
+; Analysis & Synthesis Message Level                               ; Medium                      ; Medium                      ;
+; Disable Register Merging Across Hierarchies                      ; Auto                        ; Auto                        ;
+; Resource Aware Inference For Block RAM                           ; On                          ; On                          ;
++------------------------------------------------------------------+-----------------------------+-----------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processors 3-16        ;   0.1%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                    ;
++---------------------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                  ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                         ; Library ;
++---------------------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------+---------+
+; HalfPrecisionASFiles/ripplesubtractor.sv          ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/ripplesubtractor.sv          ;         ;
+; HalfPrecisionASFiles/mux2to1.sv                   ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/mux2to1.sv                   ;         ;
+; MuxDisplayFiles/NbitRegisterSV.sv                 ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/NbitRegisterSV.sv                 ;         ;
+; MuxDisplayFiles/mux7seg.sv                        ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/mux7seg.sv                        ;         ;
+; MuxDisplayFiles/hex2seven.sv                      ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/hex2seven.sv                      ;         ;
+; MuxDisplayFiles/FSM.sv                            ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/FSM.sv                            ;         ;
+; MuxDisplayFiles/four2one.sv                       ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/four2one.sv                       ;         ;
+; MuxDisplayFiles/ClockLadder.sv                    ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/ClockLadder.sv                    ;         ;
+; KeypadFiles/shift_reg.sv                          ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/shift_reg.sv                          ;         ;
+; KeypadFiles/keypad_input.sv                       ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_input.sv                       ;         ;
+; KeypadFiles/keypad_fsm.sv                         ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_fsm.sv                         ;         ;
+; KeypadFiles/keypad_decoder.sv                     ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_decoder.sv                     ;         ;
+; KeypadFiles/keypad_base.sv                        ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_base.sv                        ;         ;
+; KeypadFiles/clock_div.sv                          ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/clock_div.sv                          ;         ;
+; HalfPrecisionASFiles/rightbarrelshifter.sv        ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/rightbarrelshifter.sv        ;         ;
+; HalfPrecisionASFiles/RCAparam.sv                  ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/RCAparam.sv                  ;         ;
+; HalfPrecisionASFiles/NbitMUX.sv                   ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/NbitMUX.sv                   ;         ;
+; HalfPrecisionASFiles/modularexponentsubtractor.sv ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/modularexponentsubtractor.sv ;         ;
+; HalfPrecisionASFiles/mantissanormalizer.sv        ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/mantissanormalizer.sv        ;         ;
+; HalfPrecisionASFiles/halfprecisionFPAS.sv         ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv         ;         ;
+; HalfPrecisionASFiles/fulladder.sv                 ; yes             ; User SystemVerilog HDL File        ; D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/fulladder.sv                 ;         ;
+; floatingpointaddersubtactor.sv                    ; yes             ; Auto-Found SystemVerilog HDL File  ; D:/DL2 Labs/Final Project/TOPLEVEL/floatingpointaddersubtactor.sv                    ;         ;
++---------------------------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 531         ;
+;                                             ;             ;
+; Total combinational functions               ; 519         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 252         ;
+;     -- 3 input functions                    ; 161         ;
+;     -- <=2 input functions                  ; 106         ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 424         ;
+;     -- arithmetic mode                      ; 95          ;
+;                                             ;             ;
+; Total registers                             ; 132         ;
+;     -- Dedicated logic registers            ; 132         ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 25          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; Reset~input ;
+; Maximum fan-out                             ; 91          ;
+; Total fan-out                               ; 2138        ;
+; Average fan-out                             ; 3.05        ;
++---------------------------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                 ;
++-----------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                   ; Entity Name                 ; Library Name ;
++-----------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; |floatingPointAdderSubtactor                              ; 519 (110)           ; 132 (33)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 25   ; 0            ; 0          ; |floatingPointAdderSubtactor                                                                                                                                                                          ; floatingPointAdderSubtactor ; work         ;
+;    |ClockLadder:DisplayClockLadder|                       ; 22 (22)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|ClockLadder:DisplayClockLadder                                                                                                                                           ; ClockLadder                 ; work         ;
+;    |halfprecisionFPAS:halfprecisionFPAS_inst|             ; 241 (50)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst                                                                                                                                 ; halfprecisionFPAS           ; work         ;
+;       |NbitMUX:ExponentINCMUX|                            ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:ExponentINCMUX                                                                                                          ; NbitMUX                     ; work         ;
+;       |NbitMUX:MantissaAdderMUX|                          ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:MantissaAdderMUX                                                                                                        ; NbitMUX                     ; work         ;
+;       |RCAparam:Adder|                                    ; 26 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder                                                                                                                  ; RCAparam                    ; work         ;
+;          |fulladder:FulladdersBlock[0].fulladder_inst|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[0].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[10].fulladder_inst|   ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[10].fulladder_inst                                                                     ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[1].fulladder_inst|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[1].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[2].fulladder_inst|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[2].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[3].fulladder_inst|    ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[3].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[4].fulladder_inst|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[4].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[5].fulladder_inst|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[5].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[6].fulladder_inst|    ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[6].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[7].fulladder_inst|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[7].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[8].fulladder_inst|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[8].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;          |fulladder:FulladdersBlock[9].fulladder_inst|    ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder|fulladder:FulladdersBlock[9].fulladder_inst                                                                      ; fulladder                   ; work         ;
+;       |mantissanormalizer:mantissanormalizer_inst|        ; 91 (91)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|mantissanormalizer:mantissanormalizer_inst                                                                                      ; mantissanormalizer          ; work         ;
+;       |modularexponentsubtractor:ModularExponentSub|      ; 19 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub                                                                                    ; modularexponentsubtractor   ; work         ;
+;          |ripplesubtractor:ripplesubtractor_inst|         ; 9 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst                                             ; ripplesubtractor            ; work         ;
+;             |fulladder:FulladdersBlock[1].fulladder_inst| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[1].fulladder_inst ; fulladder                   ; work         ;
+;             |fulladder:FulladdersBlock[2].fulladder_inst| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[2].fulladder_inst ; fulladder                   ; work         ;
+;             |fulladder:FulladdersBlock[3].fulladder_inst| ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[3].fulladder_inst ; fulladder                   ; work         ;
+;             |fulladder:FulladdersBlock[4].fulladder_inst| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[4].fulladder_inst ; fulladder                   ; work         ;
+;       |rightbarrelshifter:MantissaRightShifter|           ; 43 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter                                                                                         ; rightbarrelshifter          ; work         ;
+;          |mux2to1:inst01|                                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst01                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst02|                                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst02                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst16|                                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst16                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst17|                                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst17                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst18|                                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst18                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst19|                                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst19                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst21|                                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst21                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst29|                                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst29                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst30|                                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst30                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst31|                                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst31                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst34|                                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst34                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst35|                                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst35                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst36|                                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst36                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst37|                                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst37                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst38|                                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst38                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst39|                                 ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst39                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst3|                                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst3                                                                           ; mux2to1                     ; work         ;
+;          |mux2to1:inst40|                                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst40                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst41|                                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst41                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst42|                                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst42                                                                          ; mux2to1                     ; work         ;
+;          |mux2to1:inst43|                                 ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst43                                                                          ; mux2to1                     ; work         ;
+;    |keypad_input:keypad_input_inst|                       ; 91 (0)              ; 57 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|keypad_input:keypad_input_inst                                                                                                                                           ; keypad_input                ; work         ;
+;       |keypad_base:keypad_base|                           ; 91 (2)              ; 41 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|keypad_input:keypad_input_inst|keypad_base:keypad_base                                                                                                                   ; keypad_base                 ; work         ;
+;          |clock_div:keypad_clock_divider|                 ; 50 (50)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider                                                                                    ; clock_div                   ; work         ;
+;          |keypad_decoder:keypad_key_decoder|              ; 22 (22)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder                                                                                 ; keypad_decoder              ; work         ;
+;          |keypad_fsm:keypad_fsm|                          ; 17 (17)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm                                                                                             ; keypad_fsm                  ; work         ;
+;       |shift_reg:shift_reg|                               ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|keypad_input:keypad_input_inst|shift_reg:shift_reg                                                                                                                       ; shift_reg                   ; work         ;
+;    |mux7seg:mux7seg_inst|                                 ; 55 (0)              ; 36 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst                                                                                                                                                     ; mux7seg                     ; work         ;
+;       |ClockLadder:ClockLadder_inst|                      ; 18 (18)             ; 18 (18)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst                                                                                                                        ; ClockLadder                 ; work         ;
+;       |FSM:FSM_inst|                                      ; 6 (6)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|FSM:FSM_inst                                                                                                                                        ; FSM                         ; work         ;
+;       |NbitRegisterSV:NbitRegisterSV_inst|                ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst                                                                                                                  ; NbitRegisterSV              ; work         ;
+;       |four2one:four2one_inst|                            ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|four2one:four2one_inst                                                                                                                              ; four2one                    ; work         ;
+;       |hex2seven:hex2seven_inst|                          ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|hex2seven:hex2seven_inst                                                                                                                            ; hex2seven                   ; work         ;
++-----------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                ;
++-------------------------------------------------------------+---------------------------------------------------------------------+
+; Register name                                               ; Reason for Removal                                                  ;
++-------------------------------------------------------------+---------------------------------------------------------------------+
+; ClockLadder:DisplayClockLadder|Y[0]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[0]  ;
+; ClockLadder:DisplayClockLadder|Y[1]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[1]  ;
+; ClockLadder:DisplayClockLadder|Y[2]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[2]  ;
+; ClockLadder:DisplayClockLadder|Y[3]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[3]  ;
+; ClockLadder:DisplayClockLadder|Y[4]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[4]  ;
+; ClockLadder:DisplayClockLadder|Y[5]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[5]  ;
+; ClockLadder:DisplayClockLadder|Y[6]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[6]  ;
+; ClockLadder:DisplayClockLadder|Y[7]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[7]  ;
+; ClockLadder:DisplayClockLadder|Y[8]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[8]  ;
+; ClockLadder:DisplayClockLadder|Y[9]                         ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[9]  ;
+; ClockLadder:DisplayClockLadder|Y[10]                        ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[10] ;
+; ClockLadder:DisplayClockLadder|Y[11]                        ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[11] ;
+; ClockLadder:DisplayClockLadder|Y[12]                        ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[12] ;
+; ClockLadder:DisplayClockLadder|Y[13]                        ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[13] ;
+; ClockLadder:DisplayClockLadder|Y[14]                        ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[14] ;
+; ClockLadder:DisplayClockLadder|Y[15]                        ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[15] ;
+; ClockLadder:DisplayClockLadder|Y[16]                        ; Merged with mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[16] ;
+; mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[18..31] ; Lost fanout                                                         ;
+; ClockLadder:DisplayClockLadder|Y[23..31]                    ; Lost fanout                                                         ;
+; Total Number of Removed Registers = 40                      ;                                                                     ;
++-------------------------------------------------------------+---------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 132   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 5     ;
+; Number of registers using Asynchronous Clear ; 91    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 36    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; ShowResult                             ; 17      ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------+
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst|Q[10]                                     ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 12 LEs               ; 28 LEs                 ; Yes        ; |floatingPointAdderSubtactor|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm|col[0]               ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst|Q[1]                                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst|Q[2]                                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst|Q[4]                                      ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst|Q[7]                                      ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst|Q[9]                                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |floatingPointAdderSubtactor|mux7seg:mux7seg_inst|four2one:four2one_inst|Mux3                                                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst02|Y ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |floatingPointAdderSubtactor|halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst4|Y  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; DIGITS         ; 4     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider ;
++----------------+--------+----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                                                                     ;
++----------------+--------+----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 32     ; Signed Integer                                                                                           ;
+; DIV            ; 100000 ; Signed Integer                                                                                           ;
++----------------+--------+----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                         ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------+
+; BASE           ; 16    ; Signed Integer                                                                                               ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|shift_reg:shift_reg ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; COUNT          ; 4     ; Signed Integer                                                         ;
+; WIDTH          ; 4     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ClockLadder:DisplayClockLadder ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; N              ; 32    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                      ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+; N              ; 5     ; Signed Integer                                                                                            ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                             ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; N              ; 5     ; Signed Integer                                                                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:MantissaShifterMUX ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; N              ; 10    ; Signed Integer                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:MantissaAdderMUX ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; N              ; 10    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:ExponentINCMUX ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; N              ; 5     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; N              ; 11    ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux7seg:mux7seg_inst|four2one:four2one_inst ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst"                                       ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Y[31..18] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Y[16..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder" ;
++-------+-------+----------+----------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                  ;
++-------+-------+----------+----------------------------------------------------------+
+; A[10] ; Input ; Info     ; Stuck at VCC                                             ;
++-------+-------+----------+----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst33"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst23"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst22"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst14"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst13"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst12"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst11"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst7"                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst6"                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst5"                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst4"                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst3"                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst2"                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst1"                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst0"                                                                                    ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst010"                                                                                  ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst09"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst08"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst07"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst06"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst05"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst04"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst03"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst02"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst01"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst00"                                                                                   ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter" ;
++-------+-------+----------+-----------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                           ;
++-------+-------+----------+-----------------------------------------------------------------------------------+
+; A[10] ; Input ; Info     ; Stuck at VCC                                                                      ;
++-------+-------+----------+-----------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[4].fulladder_inst"         ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bi   ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[3].fulladder_inst"         ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bi   ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[2].fulladder_inst"         ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bi   ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[1].fulladder_inst"         ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bi   ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[0].fulladder_inst"         ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bi   ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; cini ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "halfprecisionFPAS:halfprecisionFPAS_inst"                                                                              ;
++--------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port               ; Type   ; Severity ; Details                                                                                                  ;
++--------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; ExpSubCout         ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; AdderCout          ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; op                 ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ExpSubOut          ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; IncMuxOut          ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ExponentNormalized ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; FinalExponent      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ExponentInc        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ShifterMuxOut      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; AdderMuxOut        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; MantissaShiftOut   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; AdderSum           ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; MantissaNormalized ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; SmallerMantHidden  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; BiggerMantHidden   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++--------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ClockLadder:DisplayClockLadder"                                                          ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Y[31..23] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Y[21..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst|shift_reg:shift_reg"                                                                                         ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; dir  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm"                             ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                  ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; state ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; trig  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider"                                                       ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                      ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; reset ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base"                                                         ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                  ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; slow_clock  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; sense       ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; valid_digit ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; inv_row     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst"                                                                           ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                  ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; value ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; trig  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 25                          ;
+; cycloneiii_ff         ; 132                         ;
+;     CLR               ; 54                          ;
+;     CLR SLD           ; 5                           ;
+;     ENA               ; 4                           ;
+;     ENA CLR           ; 32                          ;
+;     plain             ; 37                          ;
+; cycloneiii_lcell_comb ; 526                         ;
+;     arith             ; 95                          ;
+;         2 data inputs ; 66                          ;
+;         3 data inputs ; 29                          ;
+;     normal            ; 431                         ;
+;         1 data inputs ; 12                          ;
+;         2 data inputs ; 35                          ;
+;         3 data inputs ; 132                         ;
+;         4 data inputs ; 252                         ;
+;                       ;                             ;
+; Max LUT depth         ; 31.00                       ;
+; Average LUT depth     ; 16.46                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Thu Dec 18 14:06:58 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FloatingPointAdderSubtactor -c FloatingPointAdderSubtactor
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/ripplesubtractor.sv
+    Info (12023): Found entity 1: ripplesubtractor File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/ripplesubtractor.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/mux2to1ls.sv
+    Info (12023): Found entity 1: mux2to1LS File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/mux2to1LS.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/mux2to1.sv
+    Info (12023): Found entity 1: mux2to1 File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/mux2to1.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/leftbarrelshifter.sv
+    Info (12023): Found entity 1: leftbarrelshifter File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/leftbarrelshifter.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file muxdisplayfiles/nbitregistersv.sv
+    Info (12023): Found entity 1: NbitRegisterSV File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/NbitRegisterSV.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file muxdisplayfiles/mux7seg.sv
+    Info (12023): Found entity 1: mux7seg File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/mux7seg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file muxdisplayfiles/hex2seven.sv
+    Info (12023): Found entity 1: hex2seven File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/hex2seven.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file muxdisplayfiles/fsm.sv
+    Info (12023): Found entity 1: FSM File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/FSM.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file muxdisplayfiles/four2one.sv
+    Info (12023): Found entity 1: four2one File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/four2one.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file muxdisplayfiles/clockladder.sv
+    Info (12023): Found entity 1: ClockLadder File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/ClockLadder.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file keypadfiles/shift_reg.sv
+    Info (12023): Found entity 1: shift_reg File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/shift_reg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypadfiles/keypad_input.sv
+    Info (12023): Found entity 1: keypad_input File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_input.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypadfiles/keypad_fsm.sv
+    Info (12023): Found entity 1: keypad_fsm File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_fsm.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypadfiles/keypad_decoder.sv
+    Info (12023): Found entity 1: keypad_decoder File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_decoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypadfiles/keypad_base.sv
+    Info (12023): Found entity 1: keypad_base File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_base.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file keypadfiles/clock_div.sv
+    Info (12023): Found entity 1: clock_div File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/clock_div.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/rightbarrelshifter.sv
+    Info (12023): Found entity 1: rightbarrelshifter File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/rightbarrelshifter.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/rcaparam.sv
+    Info (12023): Found entity 1: RCAparam File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/RCAparam.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/nbitmux.sv
+    Info (12023): Found entity 1: NbitMUX File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/NbitMUX.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/modularexponentsubtractor.sv
+    Info (12023): Found entity 1: modularexponentsubtractor File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/modularexponentsubtractor.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/mantissanormalizer.sv
+    Info (12023): Found entity 1: mantissanormalizer File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/mantissanormalizer.sv Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/halfprecisionfpas.sv
+    Info (12023): Found entity 1: halfprecisionFPAS File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file halfprecisionasfiles/fulladder.sv
+    Info (12023): Found entity 1: fulladder File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/fulladder.sv Line: 1
+Warning (12125): Using design file floatingpointaddersubtactor.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: floatingPointAdderSubtactor File: D:/DL2 Labs/Final Project/TOPLEVEL/floatingpointaddersubtactor.sv Line: 2
+Info (12127): Elaborating entity "floatingPointAdderSubtactor" for the top level hierarchy
+Info (12128): Elaborating entity "keypad_input" for hierarchy "keypad_input:keypad_input_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 36
+Info (12128): Elaborating entity "keypad_base" for hierarchy "keypad_input:keypad_input_inst|keypad_base:keypad_base" File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_input.sv Line: 19
+Info (12128): Elaborating entity "clock_div" for hierarchy "keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider" File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_base.sv Line: 18
+Info (12128): Elaborating entity "keypad_fsm" for hierarchy "keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm" File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_base.sv Line: 25
+Info (12128): Elaborating entity "keypad_decoder" for hierarchy "keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder" File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_base.sv Line: 32
+Info (12128): Elaborating entity "shift_reg" for hierarchy "keypad_input:keypad_input_inst|shift_reg:shift_reg" File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_input.sv Line: 25
+Info (12128): Elaborating entity "ClockLadder" for hierarchy "ClockLadder:DisplayClockLadder" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 43
+Info (12128): Elaborating entity "halfprecisionFPAS" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 50
+Warning (10230): Verilog HDL assignment warning at halfprecisionFPAS.sv(75): truncated value with size 32 to match size of target (1) File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 75
+Warning (10034): Output port "ExponentInc" at halfprecisionFPAS.sv(6) has no driver File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 6
+Info (12128): Elaborating entity "modularexponentsubtractor" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 38
+Warning (10230): Verilog HDL assignment warning at modularexponentsubtractor.sv(20): truncated value with size 32 to match size of target (5) File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/modularexponentsubtractor.sv Line: 20
+Info (12128): Elaborating entity "ripplesubtractor" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/modularexponentsubtractor.sv Line: 18
+Info (12128): Elaborating entity "fulladder" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|modularexponentsubtractor:ModularExponentSub|ripplesubtractor:ripplesubtractor_inst|fulladder:FulladdersBlock[0].fulladder_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/ripplesubtractor.sv Line: 21
+Info (12128): Elaborating entity "NbitMUX" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:MantissaShifterMUX" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 46
+Info (12128): Elaborating entity "rightbarrelshifter" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 66
+Info (12128): Elaborating entity "mux2to1" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|rightbarrelshifter:MantissaRightShifter|mux2to1:inst00" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/rightbarrelshifter.sv Line: 9
+Info (12128): Elaborating entity "NbitMUX" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|NbitMUX:ExponentINCMUX" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 74
+Info (12128): Elaborating entity "RCAparam" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|RCAparam:Adder" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 85
+Info (12128): Elaborating entity "mantissanormalizer" for hierarchy "halfprecisionFPAS:halfprecisionFPAS_inst|mantissanormalizer:mantissanormalizer_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/halfprecisionFPAS.sv Line: 95
+Warning (10230): Verilog HDL assignment warning at mantissanormalizer.sv(28): truncated value with size 32 to match size of target (5) File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/mantissanormalizer.sv Line: 28
+Warning (10230): Verilog HDL assignment warning at mantissanormalizer.sv(39): truncated value with size 32 to match size of target (4) File: D:/DL2 Labs/Final Project/TOPLEVEL/HalfPrecisionASFiles/mantissanormalizer.sv Line: 39
+Info (12128): Elaborating entity "mux7seg" for hierarchy "mux7seg:mux7seg_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 61
+Info (12128): Elaborating entity "FSM" for hierarchy "mux7seg:mux7seg_inst|FSM:FSM_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/mux7seg.sv Line: 29
+Info (12128): Elaborating entity "four2one" for hierarchy "mux7seg:mux7seg_inst|four2one:four2one_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/mux7seg.sv Line: 40
+Info (12128): Elaborating entity "hex2seven" for hierarchy "mux7seg:mux7seg_inst|hex2seven:hex2seven_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/mux7seg.sv Line: 55
+Info (12128): Elaborating entity "NbitRegisterSV" for hierarchy "mux7seg:mux7seg_inst|NbitRegisterSV:NbitRegisterSV_inst" File: D:/DL2 Labs/Final Project/TOPLEVEL/MuxDisplayFiles/mux7seg.sv Line: 63
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder|WideOr4~0 File: D:/DL2 Labs/Final Project/TOPLEVEL/KeypadFiles/keypad_decoder.sv Line: 42
+Warning (12241): 37 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 15
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "reg_A[15]" is converted into an equivalent circuit using register "reg_A[15]~_emulated" and latch "reg_A[15]~1" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[15]" is converted into an equivalent circuit using register "reg_B[15]~_emulated" and latch "reg_B[15]~1" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[13]" is converted into an equivalent circuit using register "reg_A[13]~_emulated" and latch "reg_A[13]~5" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[13]" is converted into an equivalent circuit using register "reg_B[13]~_emulated" and latch "reg_B[13]~5" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[12]" is converted into an equivalent circuit using register "reg_B[12]~_emulated" and latch "reg_B[12]~9" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[11]" is converted into an equivalent circuit using register "reg_B[11]~_emulated" and latch "reg_B[11]~13" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[10]" is converted into an equivalent circuit using register "reg_B[10]~_emulated" and latch "reg_B[10]~17" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[10]" is converted into an equivalent circuit using register "reg_A[10]~_emulated" and latch "reg_A[10]~9" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[11]" is converted into an equivalent circuit using register "reg_A[11]~_emulated" and latch "reg_A[11]~13" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[12]" is converted into an equivalent circuit using register "reg_A[12]~_emulated" and latch "reg_A[12]~17" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[14]" is converted into an equivalent circuit using register "reg_B[14]~_emulated" and latch "reg_B[14]~21" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[14]" is converted into an equivalent circuit using register "reg_A[14]~_emulated" and latch "reg_A[14]~21" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[9]" is converted into an equivalent circuit using register "reg_A[9]~_emulated" and latch "reg_A[9]~25" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[9]" is converted into an equivalent circuit using register "reg_B[9]~_emulated" and latch "reg_B[9]~25" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[8]" is converted into an equivalent circuit using register "reg_A[8]~_emulated" and latch "reg_A[8]~29" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[8]" is converted into an equivalent circuit using register "reg_B[8]~_emulated" and latch "reg_B[8]~29" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[7]" is converted into an equivalent circuit using register "reg_A[7]~_emulated" and latch "reg_A[7]~33" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[7]" is converted into an equivalent circuit using register "reg_B[7]~_emulated" and latch "reg_B[7]~33" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[6]" is converted into an equivalent circuit using register "reg_A[6]~_emulated" and latch "reg_A[6]~37" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[6]" is converted into an equivalent circuit using register "reg_B[6]~_emulated" and latch "reg_B[6]~37" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[5]" is converted into an equivalent circuit using register "reg_A[5]~_emulated" and latch "reg_A[5]~41" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[5]" is converted into an equivalent circuit using register "reg_B[5]~_emulated" and latch "reg_B[5]~41" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[4]" is converted into an equivalent circuit using register "reg_A[4]~_emulated" and latch "reg_A[4]~45" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[4]" is converted into an equivalent circuit using register "reg_B[4]~_emulated" and latch "reg_B[4]~45" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[3]" is converted into an equivalent circuit using register "reg_A[3]~_emulated" and latch "reg_A[3]~49" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[3]" is converted into an equivalent circuit using register "reg_B[3]~_emulated" and latch "reg_B[3]~49" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[2]" is converted into an equivalent circuit using register "reg_A[2]~_emulated" and latch "reg_A[2]~53" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[2]" is converted into an equivalent circuit using register "reg_B[2]~_emulated" and latch "reg_B[2]~53" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[1]" is converted into an equivalent circuit using register "reg_A[1]~_emulated" and latch "reg_A[1]~57" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[1]" is converted into an equivalent circuit using register "reg_B[1]~_emulated" and latch "reg_B[1]~57" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_A[0]" is converted into an equivalent circuit using register "reg_A[0]~_emulated" and latch "reg_A[0]~61" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+    Warning (13310): Register "reg_B[0]" is converted into an equivalent circuit using register "reg_B[0]~_emulated" and latch "reg_B[0]~61" File: D:/DL2 Labs/Final Project/TOPLEVEL/FloatingPointAdderSubtactor.sv Line: 22
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 23 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 615 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 15 output pins
+    Info (21061): Implemented 590 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 4849 megabytes
+    Info: Processing ended: Thu Dec 18 14:07:15 2025
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:20
+
+

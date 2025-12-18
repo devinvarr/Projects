@@ -1,0 +1,109 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Col[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Col[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Col[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Col[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SEG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CAT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CAT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "CAT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "CAT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "operation",
+					"strict" : false
+				},
+				{
+					"name" : "Reset",
+					"strict" : false
+				},
+				{
+					"name" : "Row[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Row[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Row[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Row[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Clock",
+					"strict" : false
+				},
+				{
+					"name" : "LoadA",
+					"strict" : false
+				},
+				{
+					"name" : "LoadB",
+					"strict" : false
+				},
+				{
+					"name" : "LoadR",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

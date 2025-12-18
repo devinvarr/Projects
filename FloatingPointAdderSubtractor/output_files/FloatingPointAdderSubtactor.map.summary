@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Dec 18 14:07:12 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : FloatingPointAdderSubtactor
+Top-level Entity Name : floatingPointAdderSubtactor
+Family : MAX 10
+Total logic elements : 531
+    Total combinational functions : 519
+    Dedicated logic registers : 132
+Total registers : 132
+Total pins : 25
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

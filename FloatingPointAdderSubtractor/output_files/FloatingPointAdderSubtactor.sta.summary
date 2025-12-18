@@ -1,0 +1,377 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -21.735
+TNS   : -333.913
+
+Type  : Slow 1200mV 85C Model Setup 'LoadA'
+Slack : -7.286
+TNS   : -167.479
+
+Type  : Slow 1200mV 85C Model Setup 'Clock'
+Slack : -7.011
+TNS   : -119.871
+
+Type  : Slow 1200mV 85C Model Setup 'Reset'
+Slack : -3.504
+TNS   : -54.127
+
+Type  : Slow 1200mV 85C Model Setup 'Row[0]'
+Slack : -3.251
+TNS   : -39.111
+
+Type  : Slow 1200mV 85C Model Setup 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.827
+TNS   : -11.781
+
+Type  : Slow 1200mV 85C Model Setup 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 0.110
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Row[0]'
+Slack : -0.009
+TNS   : -0.009
+
+Type  : Slow 1200mV 85C Model Hold 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 0.342
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Clock'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : 0.461
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Reset'
+Slack : 0.604
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'LoadA'
+Slack : 1.730
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'Reset'
+Slack : -3.153
+TNS   : -66.636
+
+Type  : Slow 1200mV 85C Model Recovery 'Row[0]'
+Slack : -2.048
+TNS   : -28.657
+
+Type  : Slow 1200mV 85C Model Recovery 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : -1.082
+TNS   : -2.164
+
+Type  : Slow 1200mV 85C Model Recovery 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -1.065
+TNS   : -14.216
+
+Type  : Slow 1200mV 85C Model Recovery 'Clock'
+Slack : -0.634
+TNS   : -14.438
+
+Type  : Slow 1200mV 85C Model Removal 'Row[0]'
+Slack : 0.192
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'Clock'
+Slack : 0.461
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : 0.562
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 1.078
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'Reset'
+Slack : 1.252
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Row[0]'
+Slack : -3.000
+TNS   : -99.235
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clock'
+Slack : -3.000
+TNS   : -82.971
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Reset'
+Slack : -3.000
+TNS   : -49.299
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LoadA'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -1.403
+TNS   : -22.448
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : -1.403
+TNS   : -2.806
+
+Type  : Slow 1200mV 0C Model Setup 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -20.036
+TNS   : -307.797
+
+Type  : Slow 1200mV 0C Model Setup 'LoadA'
+Slack : -6.617
+TNS   : -153.478
+
+Type  : Slow 1200mV 0C Model Setup 'Clock'
+Slack : -6.337
+TNS   : -102.949
+
+Type  : Slow 1200mV 0C Model Setup 'Reset'
+Slack : -3.089
+TNS   : -48.037
+
+Type  : Slow 1200mV 0C Model Setup 'Row[0]'
+Slack : -2.966
+TNS   : -34.942
+
+Type  : Slow 1200mV 0C Model Setup 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.645
+TNS   : -10.309
+
+Type  : Slow 1200mV 0C Model Setup 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Row[0]'
+Slack : -0.012
+TNS   : -0.012
+
+Type  : Slow 1200mV 0C Model Hold 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Clock'
+Slack : 0.322
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : 0.507
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Reset'
+Slack : 0.648
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'LoadA'
+Slack : 1.750
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'Reset'
+Slack : -2.920
+TNS   : -62.335
+
+Type  : Slow 1200mV 0C Model Recovery 'Row[0]'
+Slack : -1.647
+TNS   : -22.590
+
+Type  : Slow 1200mV 0C Model Recovery 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : -1.151
+TNS   : -2.302
+
+Type  : Slow 1200mV 0C Model Recovery 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -0.924
+TNS   : -12.235
+
+Type  : Slow 1200mV 0C Model Recovery 'Clock'
+Slack : -0.541
+TNS   : -12.324
+
+Type  : Slow 1200mV 0C Model Removal 'Row[0]'
+Slack : 0.230
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'Clock'
+Slack : 0.534
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : 0.650
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 1.032
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'Reset'
+Slack : 1.127
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Row[0]'
+Slack : -3.000
+TNS   : -92.246
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock'
+Slack : -3.000
+TNS   : -82.971
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Reset'
+Slack : -3.000
+TNS   : -49.299
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LoadA'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -1.403
+TNS   : -22.448
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : -1.403
+TNS   : -2.806
+
+Type  : Fast 1200mV 0C Model Setup 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -9.117
+TNS   : -140.126
+
+Type  : Fast 1200mV 0C Model Setup 'LoadA'
+Slack : -3.271
+TNS   : -61.095
+
+Type  : Fast 1200mV 0C Model Setup 'Clock'
+Slack : -2.295
+TNS   : -18.974
+
+Type  : Fast 1200mV 0C Model Setup 'Reset'
+Slack : -1.195
+TNS   : -16.176
+
+Type  : Fast 1200mV 0C Model Setup 'Row[0]'
+Slack : -1.162
+TNS   : -17.045
+
+Type  : Fast 1200mV 0C Model Setup 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -0.694
+TNS   : -2.621
+
+Type  : Fast 1200mV 0C Model Setup 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 0.616
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Row[0]'
+Slack : -0.040
+TNS   : -0.049
+
+Type  : Fast 1200mV 0C Model Hold 'Reset'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Clock'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.166
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'LoadA'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : 0.502
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'Row[0]'
+Slack : -1.399
+TNS   : -20.123
+
+Type  : Fast 1200mV 0C Model Recovery 'Reset'
+Slack : -0.936
+TNS   : -13.863
+
+Type  : Fast 1200mV 0C Model Recovery 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -0.494
+TNS   : -6.381
+
+Type  : Fast 1200mV 0C Model Recovery 'Clock'
+Slack : -0.221
+TNS   : -5.004
+
+Type  : Fast 1200mV 0C Model Recovery 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 0.082
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'Clock'
+Slack : -0.076
+TNS   : -1.664
+
+Type  : Fast 1200mV 0C Model Removal 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -0.013
+TNS   : -0.031
+
+Type  : Fast 1200mV 0C Model Removal 'Row[0]'
+Slack : 0.117
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : 0.590
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'Reset'
+Slack : 0.725
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock'
+Slack : -3.000
+TNS   : -61.782
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Row[0]'
+Slack : -3.000
+TNS   : -52.860
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Reset'
+Slack : -3.000
+TNS   : -39.371
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LoadA'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClockLadder:DisplayClockLadder|Y[22]'
+Slack : -1.000
+TNS   : -16.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'mux7seg:mux7seg_inst|ClockLadder:ClockLadder_inst|Y[17]'
+Slack : -1.000
+TNS   : -2.000
+
+------------------------------------------------------------
