@@ -1,0 +1,70 @@
+module Calculator(
+input ClearEntry, ClearAll, Clock
+output [6:0] hex3, hex2, hex1, hex0,
+output ZeroSig, OverflowSig,
+);
+
+wire CUResetOut,IUTrigOut
+wire [3:0] IUValueOut;
+
+
+ControlUnit ControlUnit_inst
+(
+	.trig(trig_sig) ,	// input  trig_sig
+	.clock(clock) ,	// input  clock_sig
+	.ClearEntry(ClearEntry) ,	// input  ClearEntry_sig
+	.ClearAll(ClearAll) ,	// input  ClearAll_sig
+	.value(IUValueOut) ,	// input [3:0] value_sig
+	.LoadA(LoadA_sig) ,	// output  LoadA_sig
+	.LoadB(LoadB_sig) ,	// output  LoadB_sig
+	.LoadR(LoadR_sig) ,	// output  LoadR_sig
+	.AddSub(AddSub_sig) ,	// output  AddSub_sig
+	.IUAU(IUAU_sig) ,	// output  IUAU_sig
+	.Clk(Clk_sig) ,	// output  Clk_sig
+	.Reset(CUResetOut) ,	// output  Reset_sig
+	.statedebug() 	// output [3:0] statedebug_sig
+);
+
+defparam ControlUnit_inst.S0 = 'b000;
+defparam ControlUnit_inst.S1 = 'b001;
+defparam ControlUnit_inst.S2 = 'b010;
+defparam ControlUnit_inst.S3 = 'b011;
+defparam ControlUnit_inst.S4 = 'b100;
+
+
+InputUnit InputUnit_inst
+(
+	.clk() ,	// input  clk_sig
+	.reset(CUResetOut) ,	// input  reset_sig
+	.row() ,	// input [3:0] row_sig
+	.col() ,	// output [3:0] col_sig
+	.trig() ,	// output  trig_sig
+	.value(IUValueOut) ,	// output [3:0] value_sig
+	.IUOut(IUOut_sig) 	// output [7:0] IUOut_sig
+);
+
+
+EightBitTwoFunction EightBitTwoFunction_inst
+(
+	.A(A_sig) ,	// input [7:0] A_sig
+	.InA(InA_sig) ,	// input  InA_sig
+	.InB(InB_sig) ,	// input  InB_sig
+	.Out(Out_sig) ,	// input  Out_sig
+	.Clear(Clear_sig) ,	// input  Clear_sig
+	.Add_Subtract(Add_Subtract_sig) ,	// input  Add_Subtract_sig
+	.Rout(Rout_sig) ,	// output [7:0] Rout_sig
+	.Ccout(Ccout_sig) ,	// output [3:0] Ccout_sig
+	.HEX2() ,	// output [0:6] HEX2_sig
+	.HEX1() ,	// output [0:6] HEX1_sig
+	.HEX0() 	// output [0:6] HEX0_sig
+);
+
+
+OutputUnit OutputUnit_inst
+(
+	.IN(IN_sig) ,	// input [7:0] IN_sig
+	.hex3(hex3) ,	// output [6:0] hex3_sig
+	.hex2(hex2) ,	// output [6:0] hex2_sig
+	.hex1(hex1) ,	// output [6:0] hex1_sig
+	.hex0(hex0) 	// output [6:0] hex0_sig
+);

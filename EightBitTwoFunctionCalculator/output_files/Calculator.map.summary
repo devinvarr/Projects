@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Wed Dec 31 12:57:34 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : Calculator
+Top-level Entity Name : Calculator
+Family : MAX 10
+Total logic elements : 291
+    Total combinational functions : 272
+    Dedicated logic registers : 110
+Total registers : 110
+Total pins : 47
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0
