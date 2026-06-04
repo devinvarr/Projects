@@ -1,0 +1,7 @@
+../Core/Src/motor.c:10:6:motor_init	8	static
+../Core/Src/motor.c:21:6:motor_forward	4	static
+../Core/Src/motor.c:28:6:motor_reverse	4	static
+../Core/Src/motor.c:35:6:motor_stop	4	static
+../Core/Src/motor.c:46:6:motor_start_timed	24	static
+../Core/Src/motor.c:60:6:motor_reverse_timed	24	static
+../Core/Src/motor.c:71:6:motor_update	8	static

@@ -1,0 +1,4 @@
+../Core/Src/soil_sensor.c:14:6:soil_init	4	static
+../Core/Src/soil_sensor.c:23:10:adc_read	4	static
+../Core/Src/soil_sensor.c:30:6:soil_enable	16	static
+../Core/Src/soil_sensor.c:34:10:soil_update	24	static

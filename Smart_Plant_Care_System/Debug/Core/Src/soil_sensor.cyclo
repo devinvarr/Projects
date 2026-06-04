@@ -1,0 +1,4 @@
+../Core/Src/soil_sensor.c:14:6:soil_init	1
+../Core/Src/soil_sensor.c:23:10:adc_read	2
+../Core/Src/soil_sensor.c:30:6:soil_enable	1
+../Core/Src/soil_sensor.c:34:10:soil_update	3
